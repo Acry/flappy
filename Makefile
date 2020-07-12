@@ -17,7 +17,8 @@ testing: FORCE
 	@echo $(WINDOWS_DIR)
 FORCE:
 
-TARGETS     = 0 0a 0b 0c 0d 1 1a 1b 2 2a 2b 2c
+# TARGETS     = 0 0a 0b 0c 0d 1 1a 1b 2 2a 2b 2c
+TARGETS     = 0 0a 0b 0c 0d
 
 .PHONY: all
 all: $(TARGETS)

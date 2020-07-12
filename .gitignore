@@ -1,0 +1,7 @@
+*.dll
+.kdev4/
+LICENSE.zlib.txt
+.vscode/
+Builds/Android/apk*
+Builds/Linux/0*
+Builds/Windows/flap*

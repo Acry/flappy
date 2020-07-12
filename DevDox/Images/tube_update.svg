@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r"
+   sodipodi:docname="tube_update.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="391.26309"
+     inkscape:cy="468.54354"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="41.426773"
+       y="25.454159"
+       id="text4487"><tspan
+         sodipodi:role="line"
+         id="tspan4485"
+         x="41.426773"
+         y="25.454159"
+         style="stroke-width:0.26458332px">for (i=0;i&lt;PIPES;i+=2){</tspan><tspan
+         sodipodi:role="line"
+         x="41.426773"
+         y="32.068741"
+         style="stroke-width:0.26458332px"
+         id="tspan4489">	   tube_dst[i].x-=1+STEP;</tspan><tspan
+         sodipodi:role="line"
+         x="41.426773"
+         y="38.683327"
+         style="stroke-width:0.26458332px"
+         id="tspan4491">	   tube_dst[i+1].x-=1+STEP;</tspan><tspan
+         sodipodi:role="line"
+         x="41.426773"
+         y="45.297909"
+         style="stroke-width:0.26458332px"
+         id="tspan4493">	   if (tube_dst[i].x+tube_dst[i].w &lt; 0){</tspan><tspan
+         sodipodi:role="line"
+         x="41.426773"
+         y="51.912491"
+         style="stroke-width:0.26458332px"
+         id="tspan4495">		      tube_dst[i].x=300+PIPE_X_OFFSET;</tspan><tspan
+         sodipodi:role="line"
+         x="41.426773"
+         y="58.527073"
+         style="stroke-width:0.26458332px"
+         id="tspan4497">		      tube_dst[i].y=rand() % (PIPE_MAX_Y + 1 - PIPE_MIN_Y) + PIPE_MIN_Y;</tspan><tspan
+         sodipodi:role="line"
+         x="41.426773"
+         y="65.141655"
+         style="stroke-width:0.26458332px"
+         id="tspan4499">		      tube_dst[i+1].x=tube_dst[i].x;</tspan><tspan
+         sodipodi:role="line"
+         x="41.426773"
+         y="71.756241"
+         style="stroke-width:0.26458332px"
+         id="tspan4501">		      tube_dst[i+1].y=tube_dst[i].y-(tube_src.h+PIPE_OPEN);</tspan><tspan
+         sodipodi:role="line"
+         x="41.426773"
+         y="78.370827"
+         style="stroke-width:0.26458332px"
+         id="tspan4503">	   }</tspan><tspan
+         sodipodi:role="line"
+         x="41.426773"
+         y="84.985405"
+         style="stroke-width:0.26458332px"
+         id="tspan4505">}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="30.869631"
+       y="17.836977"
+       id="text4509"><tspan
+         sodipodi:role="line"
+         id="tspan4507"
+         x="30.869631"
+         y="17.836977"
+         style="stroke-width:0.26458332px">PlayingUpdate</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="17.907059"
+       y="102.02688"
+       id="text4589"><tspan
+         sodipodi:role="line"
+         id="tspan4587"
+         x="17.907059"
+         y="102.02688"
+         style="stroke-width:0.26458332px">	if (tube_dst[i].x+tube_dst[i].w &lt; 0){</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="108.64146"
+         style="stroke-width:0.26458332px"
+         id="tspan4591">		if (i==0){</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="115.25604"
+         style="stroke-width:0.26458332px"
+         id="tspan4593">		tube_dst[0].x=tube_dst[4].x+PIPE_X_OFFSET;</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="121.87063"
+         style="stroke-width:0.26458332px"
+         id="tspan4595">		tube_dst[0].y=rand() % (PIPE_MAX_Y + 1 - PIPE_MIN_Y) + PIPE_MIN_Y;</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="128.48521"
+         style="stroke-width:0.26458332px"
+         id="tspan4597">		tube_dst[1].x=tube_dst[i].x;</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="135.09979"
+         style="stroke-width:0.26458332px"
+         id="tspan4599">		tube_dst[1].y=tube_dst[i].y-(tube_src.h+PIPE_OPEN);</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="141.71437"
+         style="stroke-width:0.26458332px"
+         id="tspan4601">		}</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="148.32896"
+         style="stroke-width:0.26458332px"
+         id="tspan4603">		if (i==2){</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="154.94354"
+         style="stroke-width:0.26458332px"
+         id="tspan4605">			tube_dst[2].x=tube_dst[0].x+PIPE_X_OFFSET;</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="161.55812"
+         style="stroke-width:0.26458332px"
+         id="tspan4607">			tube_dst[2].y=rand() % (PIPE_MAX_Y + 1 - PIPE_MIN_Y) + PIPE_MIN_Y;</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="168.17271"
+         style="stroke-width:0.26458332px"
+         id="tspan4609">			tube_dst[3].x=tube_dst[i].x;</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="174.78729"
+         style="stroke-width:0.26458332px"
+         id="tspan4611">			tube_dst[3].y=tube_dst[i].y-(tube_src.h+PIPE_OPEN);</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="181.40187"
+         style="stroke-width:0.26458332px"
+         id="tspan4613">		}</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="188.01646"
+         style="stroke-width:0.26458332px"
+         id="tspan4615">		if (i==4){</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="194.63104"
+         style="stroke-width:0.26458332px"
+         id="tspan4617">			tube_dst[4].x=tube_dst[2].x+PIPE_X_OFFSET;</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="201.24562"
+         style="stroke-width:0.26458332px"
+         id="tspan4619">			tube_dst[4].y=rand() % (PIPE_MAX_Y + 1 - PIPE_MIN_Y) + PIPE_MIN_Y;</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="207.86021"
+         style="stroke-width:0.26458332px"
+         id="tspan4621">			tube_dst[5].x=tube_dst[i].x;</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="214.47479"
+         style="stroke-width:0.26458332px"
+         id="tspan4623">			tube_dst[5].y=tube_dst[i].y-(tube_src.h+PIPE_OPEN);</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="221.08937"
+         style="stroke-width:0.26458332px"
+         id="tspan4625">		}</tspan><tspan
+         sodipodi:role="line"
+         x="17.907059"
+         y="227.70396"
+         style="stroke-width:0.26458332px"
+         id="tspan4627">	}</tspan></text>
+  </g>
+</svg>

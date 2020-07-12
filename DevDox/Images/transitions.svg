@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r"
+   sodipodi:docname="transitions.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.959798"
+     inkscape:cx="131.69323"
+     inkscape:cy="383.66857"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-0.32146874"
+       y="13.895833"
+       id="text4487"><tspan
+         sodipodi:role="line"
+         id="tspan4485"
+         x="-0.32146874"
+         y="13.895833"
+         style="stroke-width:0.26458332px;-inkscape-font-specification:'Inconsolata Bold';font-family:Inconsolata;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal">Integrate screen transitions</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="22.94475"
+       y="23.716908"
+       id="text4491"><tspan
+         sodipodi:role="line"
+         id="tspan4489"
+         x="22.94475"
+         y="23.716908"
+         style="stroke-width:0.26458332px">Fade to black (Fade out)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="2.2981782"
+       y="63.005527"
+       id="text4503"><tspan
+         sodipodi:role="line"
+         id="tspan4501"
+         x="2.2981782"
+         y="63.005527"
+         style="stroke-width:0.26458332px">refactor gamestart like game over</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="2.0309081"
+       y="76.636269"
+       id="text4507"><tspan
+         sodipodi:role="line"
+         id="tspan4505"
+         x="2.0309081"
+         y="76.636269"
+         style="stroke-width:0.26458332px">game_over=0;</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="2.418859"
+       y="85.427826"
+       id="text4511"><tspan
+         sodipodi:role="line"
+         id="tspan4509"
+         x="2.418859"
+         y="85.427826"
+         style="stroke-width:0.26458332px">if (game_over==0){</tspan><tspan
+         sodipodi:role="line"
+         x="2.418859"
+         y="92.042412"
+         style="stroke-width:0.26458332px"
+         id="tspan4513">	Mix_PlayChannel(-1, wooosh_chunk, 0);</tspan><tspan
+         sodipodi:role="line"
+         x="2.418859"
+         y="98.65699"
+         style="stroke-width:0.26458332px"
+         id="tspan4515">	IdleSet();</tspan><tspan
+         sodipodi:role="line"
+         x="2.418859"
+         y="105.27158"
+         style="stroke-width:0.26458332px"
+         id="tspan4517">	IntroSet();</tspan><tspan
+         sodipodi:role="line"
+         x="2.418859"
+         y="111.88616"
+         style="stroke-width:0.26458332px"
+         id="tspan4519">	gameState = GS_INTRO;</tspan><tspan
+         sodipodi:role="line"
+         x="2.418859"
+         y="118.50074"
+         style="stroke-width:0.26458332px"
+         id="tspan4521">}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="2.1353765"
+       y="127.95014"
+       id="text4525"><tspan
+         sodipodi:role="line"
+         id="tspan4523"
+         x="2.1353765"
+         y="127.95014"
+         style="stroke-width:0.26458332px">char play=0;</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="2.9858232"
+       y="135.32069"
+       id="text4529"><tspan
+         sodipodi:role="line"
+         id="tspan4527"
+         x="2.9858232"
+         y="135.32069"
+         style="stroke-width:0.26458332px">if (play){</tspan><tspan
+         sodipodi:role="line"
+         x="2.9858232"
+         y="141.93527"
+         style="stroke-width:0.26458332px"
+         id="tspan4554">    Mix_PlayChannel(-1, wooosh_chunk, 0);</tspan><tspan
+         sodipodi:role="line"
+         x="2.9858232"
+         y="148.54987"
+         style="stroke-width:0.26458332px"
+         id="tspan4552">    ftb();</tspan><tspan
+         sodipodi:role="line"
+         x="2.9858232"
+         y="155.16444"
+         style="stroke-width:0.26458332px"
+         id="tspan4550">				IntroSet();</tspan><tspan
+         sodipodi:role="line"
+         x="2.9858232"
+         y="161.77902"
+         style="stroke-width:0.26458332px"
+         id="tspan4560">    gameState = GS_INTRO;</tspan><tspan
+         sodipodi:role="line"
+         x="2.9858232"
+         y="168.39362"
+         style="stroke-width:0.26458332px"
+         id="tspan4562">}</tspan><tspan
+         sodipodi:role="line"
+         x="2.9858232"
+         y="175.00819"
+         style="stroke-width:0.26458332px"
+         id="tspan4539" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="8.598958"
+       y="6.619791"
+       id="text4533"><tspan
+         sodipodi:role="line"
+         id="tspan4531"
+         x="8.598958"
+         y="6.619791"
+         style="stroke-width:0.26458332px">22.c</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="2.7023387"
+       y="186.15848"
+       id="text4566"><tspan
+         sodipodi:role="line"
+         id="tspan4564"
+         x="2.7023387"
+         y="186.15848"
+         style="stroke-width:0.26458332px">refactor Idle State</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="17.372519"
+       y="202.92113"
+       id="text4518"><tspan
+         sodipodi:role="line"
+         id="tspan4516"
+         x="17.372519"
+         y="202.92113"
+         style="stroke-width:0.26458332px">if fade</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="18.441597"
+       y="212.54282"
+       id="text4522"><tspan
+         sodipodi:role="line"
+         id="tspan4520"
+         x="18.441597"
+         y="212.54282"
+         style="stroke-width:0.26458332px">if (fade_out){</tspan><tspan
+         sodipodi:role="line"
+         x="18.441597"
+         y="219.15739"
+         style="stroke-width:0.26458332px"
+         id="tspan4524">	   SDL_SetRenderDrawColor(Renderer, 0, 0, 0, alpha);</tspan><tspan
+         sodipodi:role="line"
+         x="18.441597"
+         y="225.77199"
+         style="stroke-width:0.26458332px"
+         id="tspan4526">	   SDL_RenderFillRect(Renderer, &amp;fill_dst);</tspan><tspan
+         sodipodi:role="line"
+         x="18.441597"
+         y="232.38657"
+         style="stroke-width:0.26458332px"
+         id="tspan4528">}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="7.9512687"
+       y="21.779203"
+       id="text4532"><tspan
+         sodipodi:role="line"
+         id="tspan4530"
+         x="7.9512687"
+         y="21.779203"
+         style="stroke-width:0.26458332px">Idle </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="3.2072344"
+       y="25.520977"
+       id="text4536"><tspan
+         sodipodi:role="line"
+         id="tspan4534"
+         x="3.2072344"
+         y="25.520977"
+         style="stroke-width:0.26458332px">Game Over</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="7.0158248"
+       y="31.734991"
+       id="text4540"><tspan
+         sodipodi:role="line"
+         id="tspan4538"
+         x="7.0158248"
+         y="31.734991"
+         style="stroke-width:0.26458332px">Intro</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.96875px;line-height:6.61458302px;font-family:Inconsolata;-inkscape-font-specification:'Inconsolata, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="22.985178"
+       y="31.801807"
+       id="text4544"><tspan
+         sodipodi:role="line"
+         id="tspan4542"
+         x="22.985178"
+         y="31.801807"
+         style="stroke-width:0.26458332px">Fade from black to alpha</tspan></text>
+  </g>
+</svg>

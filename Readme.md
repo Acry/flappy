@@ -1,0 +1,19 @@
+# Flappy Birds
+
+## A rapid prototype implementation in SDL2-C
+
+![](./assets/ss/Screenshot.png)
+
+Done in 2017
+
+If you can't follow the tutorial, check: [Getting started with SDL2-C](https://acry.github.io/c.html)
+
+[The Tutorial](./DevDox/TOC.md)
+
+ToDo: finished static linux build.<br>
+[Finished Android Build](https://www.dropbox.com/s/mpin68zb252a84z/SDLActivity-debug-1.apk?dl=0)<br>
+[Finished Windows 64 Build](https://www.dropbox.com/s/w3v6831j8sjy1zs/flap.7z?dl=0)<br>
+
+## Author and Contact
+
+[Repo-Link](https://github.com/Acry/flappy) | [My Home Page](https://acry.github.io/) | [Game Page](https://acry.github.io/flappy.html)

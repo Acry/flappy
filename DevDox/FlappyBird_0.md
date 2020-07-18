@@ -1,9 +1,11 @@
 # Flappy Bird - C/SDL2-Implementation - Part 0
 
-<< [Prepare the toolchain](Toolchain.md) | [TOC](TOC.md) | [Part 1](FlappyBird_1.md) >><br>
+<< [Prepare the tool-chain](Toolchain.md) | [TOC](TOC.md) | [Part 1](FlappyBird_1.md) >><br>
 
 Outline:<br>
 Render and animate background, ground, bird.
+
+I do not know how deep one wants to go in understanding what is happening in the code. If you you have questions check [my SDL2-C section](https://acry.github.io/c.html) first.
 
 ## build 0
 
@@ -136,7 +138,7 @@ SDL_RenderCopy(Renderer, atlas, &bird_src, &bird_dst);
 `make 0b`
 
 Screenshot of build 0b:<br>
-![Screenhot 0c](Images/Screenshot_0b.png)
+![Screenshot 0c](Images/Screenshot_0b.png)
 
 ## 0c - animate bird and ground
 
@@ -251,9 +253,13 @@ else if (bird == 2)
 
 ## Retrospective
 
-The program is still tiny, not a lot complexity and lines of code.
-This will change, the scaffold for the states adds a lot of flexibility which results in complexity. The call-flow so far:
+The code base is still tiny, not a lot complexity and lines of code.<br>
+The call-flow so far:
 
 ![](Images/Flow1.png)
+
+## Outlook
+
+The next part will integrate games-states and reveal visuals of the idle state.
 
 << [Prepare the toolchain](Toolchain.md) | [TOC](TOC.md) | [Part 1](FlappyBird_1.md) >><br>

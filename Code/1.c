@@ -4,7 +4,7 @@
 
 /* DEFINED PROGRESS GOALS
  * 
- * Render random bird color and day/night background
+ * Introducing Game-States
  * 
  */
 #pragma endregion DESCRIPTION
@@ -31,7 +31,16 @@
 #pragma region GLOBALS
 int ww = WW;
 int wh = WH;
-
+int game_state;
+enum game_state
+{
+	GS_PLAYING,
+	GS_PAUSED,
+	GS_IDLE,
+	GS_OVER,
+	GS_INTRO
+};
+int bird_move = 1;
 #pragma region VISIBLES
 SDL_Surface *temp_surface = NULL;
 // Background
@@ -50,6 +59,29 @@ SDL_Point mouse;
 #pragma region FUNCTION PROTOTYPES
 void assets_in(void);
 void assets_out(void);
+
+void game_state_check(void);
+void gameSet(void);
+
+void playing_set(void);
+void playing_update(void);
+void playing_draw(void);
+
+void paused_set(void);
+void paused_update(void);
+void paused_draw(void);
+
+void idle_set(void);
+void idle_update(void);
+void idle_draw(void);
+
+void intro_set(void);
+void intro_update(void);
+void intro_draw(void);
+
+void game_over_set(void);
+void game_over_Update(void);
+void game_over_Draw(void);
 #pragma endregion FUNCTION PROTOTYPES
 
 #pragma endregion HEAD
@@ -74,8 +106,9 @@ int main(int argc, char *argv[])
 #pragma endregion WINDOW
 
 	SDL_Event event;
-	int bird_move = 1;
 	int running = 1;
+	SDL_SetRenderDrawColor(Renderer, WHITE);
+	game_state = GS_IDLE;
 #pragma endregion INIT
 
 #pragma region MAIN LOOP
@@ -130,43 +163,9 @@ int main(int argc, char *argv[])
 			}
 		}
 #pragma endregion EVENT LOOP
-
-#pragma region LOGIC
-		//move ground
-		grd_src.x += 1;
-		if (grd_src.x >= 48 + 584)
-			grd_src.x = 584;
-
-		//animate bird
-		if (bird_src.x == 355)
-			bird_src.x = 390;
-		else if (bird_src.x == 390)
-			bird_src.x = 425;
-		else if (bird_src.x == 425)
-			bird_src.x = 355;
-
-		if (bird_move)
-		{
-			bird_dst.y++;
-			if (bird_dst.y >= 250)
-				bird_move = 0;
-		}
-		else
-		{
-			bird_dst.y--;
-			if (bird_dst.y <= 200)
-				bird_move = 1;
-		}
-#pragma endregion LOGIC
-
-#pragma region RENDERING
-		SDL_SetRenderDrawColor(Renderer, WHITE);
 		SDL_RenderClear(Renderer);
-		SDL_RenderCopy(Renderer, atlas, &bg_src, NULL);
-		SDL_RenderCopy(Renderer, atlas, &grd_src, &grd_dst);
-		SDL_RenderCopy(Renderer, atlas, &bird_src, &bird_dst);
+		game_state_check();
 		SDL_RenderPresent(Renderer);
-#pragma endregion RENDERING
 		SDL_Delay(25);
 	}
 #pragma endregion MAIN LOOP
@@ -178,6 +177,31 @@ int main(int argc, char *argv[])
 #pragma endregion MAIN FUNCTION
 
 #pragma region FUNCTIONS
+void game_state_check(void)
+{
+	switch (game_state)
+	{
+	case GS_PLAYING:
+		playing_update();
+		break;
+
+	case GS_PAUSED:
+		paused_update();
+		break;
+
+	case GS_IDLE:
+		idle_update();
+		break;
+
+	case GS_OVER:
+		game_over_Update();
+		break;
+
+	default:
+		break;
+	}
+}
+
 void assets_in(void)
 {
 
@@ -225,9 +249,98 @@ void assets_in(void)
 	bird_dst.h = 24;
 }
 
+void idle_set(void)
+{
+}
+
+void idle_update(void)
+{
+	//move ground
+	grd_src.x += 1;
+	if (grd_src.x >= 48 + 584)
+		grd_src.x = 584;
+
+	//animate bird
+	if (bird_src.x == 355)
+		bird_src.x = 390;
+	else if (bird_src.x == 390)
+		bird_src.x = 425;
+	else if (bird_src.x == 425)
+		bird_src.x = 355;
+
+	if (bird_move)
+	{
+		bird_dst.y++;
+		if (bird_dst.y >= 250)
+			bird_move = 0;
+	}
+	else
+	{
+		bird_dst.y--;
+		if (bird_dst.y <= 200)
+			bird_move = 1;
+	}
+	idle_draw();
+}
+
+void idle_draw(void)
+{
+
+	SDL_RenderCopy(Renderer, atlas, &bg_src, NULL);
+	SDL_RenderCopy(Renderer, atlas, &grd_src, &grd_dst);
+	SDL_RenderCopy(Renderer, atlas, &bird_src, &bird_dst);
+}
+
+void intro_set(void)
+{
+}
+
+void intro_update(void)
+{
+}
+
+void intro_draw(void)
+{
+}
+
+void playing_set(void)
+{
+}
+
+void playing_update(void)
+{
+}
+
+void playing_draw(void)
+{
+}
+
+void paused_set(void)
+{
+}
+
+void paused_update(void)
+{
+}
+
+void paused_draw(void)
+{
+}
+
+void game_over_set(void)
+{
+}
+
+void game_over_Update(void)
+{
+}
+
+void game_over_Draw(void)
+{
+}
+
 void assets_out(void)
 {
 	SDL_DestroyTexture(atlas);
 }
-
 #pragma endregion FUNCTIONS

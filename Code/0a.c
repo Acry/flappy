@@ -37,7 +37,7 @@ int wh = WH;
 
 #pragma region VISIBLES
 SDL_Surface *temp_surface = NULL;
-//bg
+// Background
 SDL_Texture *atlas = NULL;
 SDL_Rect bg_src;
 #pragma endregion VISIBLES

@@ -4,4 +4,6 @@ LICENSE.zlib.txt
 .vscode/
 Builds/Android/apk*
 Builds/Linux/0*
+Builds/Linux/1*
+Builds/Linux/2*
 Builds/Windows/flap*

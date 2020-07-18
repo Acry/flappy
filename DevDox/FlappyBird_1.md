@@ -1,6 +1,6 @@
 # Flappy Bird - C/SDL2-Implementation - Part 1
 
-<< [Part 0](FlappyBird_0.md) | [TOC](TOC.md) | [Part 2](Patience.md) >><br>
+<< [Part 0](FlappyBird_0.md) | [TOC](TOC.md) | [Part 2](FlappyBird_2.md) >><br>
 
 ## Introducing Game-States
 
@@ -168,6 +168,8 @@ gameState = GS_INTRO;
 
 Would change the states, but it needs to be implemented before the: `break;` can be removed.
 
+`1b`
+
 ## Retrospective
 
 The state scaffolding added quite some complexity to gain flexibility. The game states will help with [separation of concerns (SoC)](https://en.wikipedia.org/wiki/Separation_of_concerns).
@@ -176,4 +178,4 @@ The state scaffolding added quite some complexity to gain flexibility. The game 
 
 The next part will be more fun. I will finish the idle-state and start the playing-state; going into a bit of game-physics.
 
-<< [Part 0](FlappyBird_0.md) | [TOC](TOC.md) | [Part 2](Patience.md) >><br>
+<< [Part 0](FlappyBird_0.md) | [TOC](TOC.md) | [Part 2](FlappyBird_2.md) >><br>

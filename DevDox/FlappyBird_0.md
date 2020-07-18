@@ -1,6 +1,6 @@
 # Flappy Bird - C/SDL2-Implementation - Part 0
 
-<< [Prepare the tool-chain](Toolchain.md) | [TOC](TOC.md) | [Part 1](FlappyBird_1.md) >><br>
+<< [Prepare the tool-chain](Toolchain.md) | [TOC](TOC.md) | [Part 1(TOC.md)](FlappyBird_1.md) >><br>
 
 Outline:<br>
 Render and animate background, ground, bird.

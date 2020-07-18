@@ -19,6 +19,8 @@ arch-based distributions:<br>
 If you want all libs to experiment with them, use:<br>
 `sudo pacman -S sdl2 sdl2_image sdl2_mixer sdl2_gfx sdl2_net sdl2_ttf`
 
+Gentoo users can "sudo emerge libsdl2" to get everything they need.<br>
+
 On other distros look out for sdl2 and their developer packages:<br>
 
 debian packages:<br>

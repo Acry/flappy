@@ -23,8 +23,7 @@ testing: FORCE
 	@echo $(WINDOWS_DIR)
 FORCE:
 
-TARGETS     = 0 0a 0b 0c 0d 1 1a 1b 2 2a 2b 2c
-# TARGETS     = 0 0a 0b 0c 0d 1
+TARGETS     = 0 0a 0b 0c 0d 1 1a 1b 2 2a 2b 2c 2d 2e
 
 .PHONY: all
 all: $(TARGETS)
@@ -77,9 +76,22 @@ all: $(TARGETS)
 	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
 	$(call colorecho,"$@ success. ./\"$@\" to execute.")
 
+2d:   $(SRCDIR)helper_0.c $(SRCDIR)2d.c
+	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
+	$(call colorecho,"$@ success. ./\"$@\" to execute.")
+
+2e:   $(SRCDIR)helper_0.c $(SRCDIR)2e.c
+	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
+	$(call colorecho,"$@ success. ./\"$@\" to execute.")
+
 .PHONY: clean
 clean:
 	@cd $(LINUX_DIR) && rm $(TARGETS) 2>/dev/null || true
 
 # hot compile
 # while inotifywait -e close_write ./code.c; do date +%X; make > /dev/null; done
+
+#$<	first dependency
+#$@	target name
+#$+	list of all dependencies
+#$^	list of all unique dependencies

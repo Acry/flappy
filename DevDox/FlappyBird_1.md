@@ -1,6 +1,6 @@
 # Flappy Bird - C/SDL2-Implementation - Part 1
 
-<< [Part 0](FlappyBird_0.md) | [TOC](TOC.md) | [Part 2](FlappyBird_2.md) >><br>
+<< [Part 0](FlappyBird_0.md) | [TOC](TOC.md) | [Part 2](Patience.md) >><br>
 
 ## Introducing Game-States
 
@@ -176,4 +176,4 @@ The state scaffolding added quite some complexity to gain flexibility. The game 
 
 The next part will be more fun. I will finish the idle-state and start the playing-state; going into a bit of game-physics.
 
-<< [Part 0](FlappyBird_0.md) | [TOC](TOC.md) | [Part 2](FlappyBird_2.md) >><br>
+<< [Part 0](FlappyBird_0.md) | [TOC](TOC.md) | [Part 2](Patience.md) >><br>

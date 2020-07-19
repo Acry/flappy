@@ -2,6 +2,13 @@
 
 << [Part 0](FlappyBird_0.md) | [TOC](TOC.md) | [Part 2](FlappyBird_2.md) >><br>
 
+- [Introducing Game-States](#introducing-game-states)
+- [1.c - State Vars & State Functions](#1c---state-vars---state-functions)
+- [1a.c - Adding Idle Visuals](#1ac---adding-idle-visuals)
+- [1b - First Input event - Switching Game States](#1b---first-input-event---switching-game-states)
+- [Retrospective](#retrospective)
+- [Outlook](#outlook)
+
 ## Introducing Game-States
 
 By observing the original game one can see the most important runtime-states:

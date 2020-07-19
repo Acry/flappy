@@ -4,6 +4,15 @@
 
 The intro & pause states, plus fun with game physics
 
+- [2.c - The Intro State:](#2c---the-intro-state-)
+- [2a.c - prepare playing State](#2ac---prepare-playing-state)
+- [2b.c - Make it fly! - A little bit of physics](#2bc---make-it-fly----a-little-bit-of-physics)
+- [2c.c - Refactoring Flapping](#2cc---refactoring-flapping)
+- [2.d - Angle/Bearing/Rotation](#2d---angle-bearing-rotation)
+- [2e.c - Implementing pause and connecting states](#2ec---implementing-pause-and-connecting-states)
+- [Retrospective](#retrospective)
+- [Outlook](#outlook)
+
 ## 2.c - The Intro State:
 
 ![](Images/FlappyBird8.png)

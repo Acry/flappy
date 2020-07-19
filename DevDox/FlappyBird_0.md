@@ -7,6 +7,22 @@ Render and animate background, ground, bird.
 
 I do not know how deep one wants to go in understanding what is happening in the code. If you you have questions check [my SDL2-C section](https://acry.github.io/c.html) first.
 
+- [build 0](#build-0)
+- [0a - render game icon & background](#0a---render-game-icon---background)
+  - [Game Icon](#game-icon)
+  - [Render Background & Screen Size](#render-background---screen-size)
+- [0b - render ground and bird](#0b---render-ground-and-bird)
+  - [Add the ground](#add-the-ground)
+  - [Show bird](#show-bird)
+- [0c - animate bird and ground](#0c---animate-bird-and-ground)
+  - [Ground](#ground)
+- [Bird](#bird)
+- [0d - Render random bird color and day/night background](#0d---render-random-bird-color-and-day-night-background)
+  - [Set random background](#set-random-background)
+  - [Setting a random bird color](#setting-a-random-bird-color)
+- [Retrospective](#retrospective)
+- [Outlook](#outlook)
+
 ## build 0
 
 Type `make 0` change into `./Builds/Linux` and run `0` and you should see following screen.

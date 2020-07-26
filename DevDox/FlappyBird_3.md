@@ -143,8 +143,8 @@ In playing draw
 
 ```c
 int i;
-	for (i = 0; i < PIPES; i++)
-	{
+for (i = 0; i < PIPES; i++)
+{
 	if (i % 2)
 		SDL_RenderCopyEx(Renderer, Texture, &pipe_src, &pipe_dst[i], 0, NULL, SDL_FLIP_VERTICAL);
 	else

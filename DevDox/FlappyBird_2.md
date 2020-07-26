@@ -36,7 +36,7 @@ update_bird();
 
 ![](Images/Screenshot_2c.png)
 
-`2.c`
+`./2`
 
 ## 2a.c - prepare playing State
 
@@ -46,7 +46,8 @@ Copy and paste rendering from intro to playing and adjust shown elements.
 Set `gameState = GS_PLAYING;` and in update pressing the LMB will just cause an `SDL_Log("Flap");`, which one can see if executed from the shell. The `break`'s in the previous two state updates is removed now.
 
 ![](Images/2a.gif)
-`2a.c`
+
+`./2a`
 
 ## 2b.c - Make it fly! - A little bit of physics
 
@@ -103,7 +104,8 @@ The formula reveals delta time needs to be tracked. That's the time difference b
 ```
 
 ![](Images/2b.gif)
-`2b`
+
+`./2b`
 
 ## 2c.c - Refactoring Flapping
 
@@ -168,6 +170,7 @@ void bird_slide(void)
 It is called in `idle_update` and `intro_update`.
 
 ![](Images/2c.gif)
+
 `2c`
 
 ## 2.d - Angle/Bearing/Rotation
@@ -197,7 +200,8 @@ SDL_RenderCopyEx(Renderer, atlas, &bird_src, &bird_dst, bird_angle, NULL, 0);
 ```
 
 ![](Images/2d.gif)
-`2d`
+
+`./2d`
 
 ## 2e.c - Implementing pause and connecting states
 
@@ -231,7 +235,8 @@ Cause: Pause sign click/press or p
 Effect: Game will be rendered, but not updated.
 
 ![](Images/2e.gif)
-`2e`
+
+`./2e`
 
 ## Retrospective
 
@@ -245,7 +250,6 @@ I really hope the code is not to messy right now =)
 
 ## Outlook
 
-In the next part the obstacles (tubes) will be rendered and checked for collision, which means we have a game over trigger. The game over state is waiting to be done. Then I will implement the score and the highest score.
-The score will be rendered with pixel mapping to the atlas.
+In the next part the obstacles (tubes) will be rendered and checked for collision, which means we have a game over trigger. The game over state is waiting to be done.
 
 << [Part 1](FlappyBird_1.md) | [TOC](TOC.md) | [Part 3](Patience.md) >><br>

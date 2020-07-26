@@ -148,7 +148,7 @@ for (i = 0; i < PIPES; i++)
 	if (i % 2)
 		SDL_RenderCopyEx(Renderer, Texture, &pipe_src, &pipe_dst[i], 0, NULL, SDL_FLIP_VERTICAL);
 	else
-	SDL_RenderCopy(Renderer, Texture, &pipe_src, &pipe_dst[i]);
+		SDL_RenderCopy(Renderer, Texture, &pipe_src, &pipe_dst[i]);
 }
 ```
 

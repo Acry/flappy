@@ -1,6 +1,6 @@
 # Flappy Bird - C/SDL2-Implementation - Part 3
 
-<< [Part 2](FlappyBird_2.md) | [TOC](TOC.md) | [Part 4](Patience.md) >><br>
+<< [Part 2](FlappyBird_2.md) | [TOC](TOC.md) | [Part 4](FlappyBird_4.md) >><br>
 
 Pipes, Collision & Game Over
 
@@ -240,4 +240,4 @@ I will refactor set states to split it in init & set, it is not necessary to ini
 Then I will implement the score and the highest score.
 The score will be rendered with pixel mapping to the atlas.
 
-<< [Part 2](FlappyBird_2.md) | [TOC](TOC.md) | [Part 4](Patience.md) >><br>
+<< [Part 2](FlappyBird_2.md) | [TOC](TOC.md) | [Part 4](FlappyBird_4.md) >><br>

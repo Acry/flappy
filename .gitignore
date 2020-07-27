@@ -2,17 +2,19 @@
 .kdev4/
 LICENSE.zlib.txt
 .vscode/
-Builds/Android/apk*
-Builds/Linux/0*
-Builds/Linux/1*
-Builds/Linux/2*
-Builds/Linux/3*
+apk*
+0*
+1*
+2*
+3*
+4*
 Builds/Windows/flap*
 markdown_help.md
 todo.md
 27.c
 angle.c
-FlappyBird_4.md
+FlappyBird_5.md
 Static Linkage.md
 *workspace
 Makefile_static
+hiscore

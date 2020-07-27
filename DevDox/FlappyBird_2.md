@@ -1,6 +1,6 @@
 # Flappy Bird - C/SDL2-Implementation - Part 2
 
-<< [Part 1](FlappyBird_1.md) | [TOC](TOC.md) | [Part 3](Patience.md) >><br>
+<< [Part 1](FlappyBird_1.md) | [TOC](TOC.md) | [Part 3](FlappyBird_3.md) >><br>
 
 The intro & pause states, plus fun with game physics
 
@@ -252,4 +252,4 @@ I really hope the code is not to messy right now =)
 
 In the next part the obstacles (tubes) will be rendered and checked for collision, which means we have a game over trigger. The game over state is waiting to be done.
 
-<< [Part 1](FlappyBird_1.md) | [TOC](TOC.md) | [Part 3](Patience.md) >><br>
+<< [Part 1](FlappyBird_1.md) | [TOC](TOC.md) | [Part 3](FlappyBird_3.md) >><br>

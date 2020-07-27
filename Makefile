@@ -23,7 +23,7 @@ testing: FORCE
 	@echo $(WINDOWS_DIR)
 FORCE:
 
-TARGETS     = 0 0a 0b 0c 0d 1 1a 1b 2 2a 2b 2c 2d 2e 3a
+TARGETS     = 0 0a 0b 0c 0d 1 1a 1b 2 2a 2b 2c 2d 2e 3a 4 4a 4b 4c
 
 .PHONY: all
 all: $(TARGETS)
@@ -94,6 +94,24 @@ all: $(TARGETS)
 	$(call colorecho,"$@ success. ./\"$@\" to execute.")
 
 3a:   $(SRCDIR)helper_0.c $(SRCDIR)3a.c
+	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
+	$(call colorecho,"$@ success. ./\"$@\" to execute.")
+
+
+
+4:   $(SRCDIR)helper_0.c $(SRCDIR)4.c
+	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
+	$(call colorecho,"$@ success. ./\"$@\" to execute.")
+
+4a:   $(SRCDIR)helper_0.c $(SRCDIR)4a.c
+	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
+	$(call colorecho,"$@ success. ./\"$@\" to execute.")
+
+4b:   $(SRCDIR)helper_0.c $(SRCDIR)4b.c
+	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
+	$(call colorecho,"$@ success. ./\"$@\" to execute.")
+
+4c:   $(SRCDIR)helper_0.c $(SRCDIR)4c.c
 	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
 	$(call colorecho,"$@ success. ./\"$@\" to execute.")
 

@@ -788,7 +788,7 @@ void update_pipes(void)
 	for (i = 0; i < PIPES; i += 2)
 	{
 		// check if pipe passed player
-		if ((pipe_dst[i].x + pipe_dst[i].w) < (bird_dst.x - bird_dst.w) && (pipe_passed_player[i / 2] == SDL_FALSE))
+		if ((pipe_dst[i].x + pipe_dst[i].w) < (bird_dst.x) && (pipe_passed_player[i / 2] == SDL_FALSE))
 		{
 			pipe_passed_player[i / 2] = SDL_TRUE;
 			current_score += 1;

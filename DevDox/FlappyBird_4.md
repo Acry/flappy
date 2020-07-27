@@ -72,11 +72,13 @@ It will be set to false in the beginning and every time a pipe spawns.
 
 The first time when a pipe passes the player the player will score and the state var will be set. So it wont be checked again until it spawns.
 
+![](Images/4a.png)
+
 In update pipes:
 
 ```c
 if (
-		(pipe_dst[i].x + pipe_dst[i].w) < (bird_dst.x - bird_dst.w)
+		(pipe_dst[i].x + pipe_dst[i].w) < (bird_dst.x )
  && (pipe_passed_player[i / 2] == SDL_FALSE)
  )
 {

@@ -3,11 +3,11 @@
 LICENSE.zlib.txt
 .vscode/
 apk*
-0*
-1*
-2*
-3*
-4*
+Builds/Linux/0*
+Builds/Linux/1*
+Builds/Linux/2*
+Builds/Linux/3*
+Builds/Linux/4*
 Builds/Windows/flap*
 markdown_help.md
 todo.md

@@ -78,9 +78,9 @@ In update pipes:
 
 ```c
 if (
-		(pipe_dst[i].x + pipe_dst[i].w) < (bird_dst.x )
- && (pipe_passed_player[i / 2] == SDL_FALSE)
- )
+	   (pipe_dst[i].x + pipe_dst[i].w) < (bird_dst.x )
+	&& (pipe_passed_player[i / 2] == SDL_FALSE)
+   )
 {
 	pipe_passed_player[i / 2] = SDL_TRUE;
 	current_score += 1;

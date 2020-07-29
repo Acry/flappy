@@ -102,7 +102,7 @@ Alright, done.
 
 `./5a`
 
-## 5b.c Render score, high score and new high score sign
+## 5b.c - Render score, high score and new high score sign
 
 This is another repetitive task. I solved the main problem in the last part.
 
@@ -166,7 +166,7 @@ In 5c.c I include the new helper:
 #include "helper_1.h"
 ```
 
-set the default volume
+set the default volume:
 
 ```c
 #define MIX_VOLUME 90 //max 128
@@ -225,15 +225,15 @@ Mix_PlayChannel(-1, wooosh_chunk, 0);
 
 You can check the source where I called the Play functions.
 
-`.5c`
+`./5c`
 
 ## Retrospective
 
-The number of things that need to be done are shrinking =)
+The number of things that need to be done is shrinking =)
 
-Now the scoreboard rendering ist complete. There are medals, scores and a new highest score alert. The audio has has a lot impact on game play (User Experience / UX) for the most people and is very cheap to achieve. Since the sound chips perform poor compared to a modern GPU, there is not much more one can do than just play and mix samples. That is why I gave up my work on sound synthesis.
+Now the scoreboard rendering is complete. There are medals, scores and a new highest score alert. The audio has has a lot impact on game play (User Experience / UX) for the most people and is very cheap to achive. Since the sound chips perform poor compared to modern GPU's, there is not much more one can do than just play and mix samples. That is why I gave up my work on sound synthesis.
 
-You can check out this project: <http://www.drpetter.se/project_sfxr.html> if you want to play with sound. I ported that code to SDL2, think it is not pushed yet. He also provides a small introduction into this audio: <http://www.drpetter.se/article_sound.html>. And while visiting his page take a look at the [projects](http://www.drpetter.se/projects.html). The whole point of this tutorial is help to empower people to understand game development and encourage people to write cool projects or cool code. And maybe you and me will get in touch to work on an awesome project in the future.
+You can check out this project: <http://www.drpetter.se/project_sfxr.html> if you want to play with sound. I ported that code to SDL2, think it is not pushed yet. He also provides a small introduction into this audio: <http://www.drpetter.se/article_sound.html>. And while visiting his page take a look at the [projects](http://www.drpetter.se/projects.html). The whole point of this tutorial is helping empowering people to understand game development and encourage people to write cool projects or cool code. And maybe you and me will get in touch to work on an awesome project in the future.
 
 Ofc creating a 2D side scroller can't be compared to the work at a triple A studio. But we will [get there](Next.md). This is just a pit stop to take theory to completion.
 

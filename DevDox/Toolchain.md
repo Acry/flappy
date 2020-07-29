@@ -1,12 +1,15 @@
 ## Tool chain
 
-- OS: Arch Linux - Rolling Releases
-- UI: Gnome
-- Shell: Bash
-- IDE: VS Code
-- CC: GNU GCC
-- Build system: GNU Make
-- Debugger: gdb with UI: Nemiver
+## My tool chain
+
+- OS: [Arch Linux - Rolling Releases](https://distrowatch.com/table.php?distribution=arch)
+- UI: [Gnome](https://www.gnome.org/)
+- Shell: [Bash](https://www.gnu.org/software/bash/)
+- IDE: [VS Code](https://code.visualstudio.com/)
+- CC: [GNU GCC](https://gcc.gnu.org/)
+- Build system: [GNU Make](https://www.gnu.org/software/make/)
+- Debugger: [gdb](https://www.gnu.org/software/gdb/) with UI: [Nemiver](https://wiki.gnome.org/Apps/Nemiver)
+- cross-platform multi-media: [Simple DirectMedia Layer](https://www.libsdl.org/)
 - Testing: tbd
 
 ## Testing step
@@ -19,7 +22,7 @@ If everything runs like expected you can move on, else try to fix it yourself. I
 
 ## Install SDL2
 
-The code is linking against: `-lSDL2_image -lSDL2_mixer`<br>
+The code links against: `pthread SDL2 SDL2_image SDL2_mixer`<br>
 
 arch-based distributions:<br>
 
@@ -28,7 +31,7 @@ arch-based distributions:<br>
 If you want all libs to experiment with them, use:<br>
 `sudo pacman -S sdl2 sdl2_image sdl2_mixer sdl2_gfx sdl2_net sdl2_ttf`
 
-Gentoo users can "sudo emerge libsdl2" to get everything they need.<br>
+Gentoo users can `sudo emerge libsdl2` to get everything they need.<br>
 
 On other distros look out for sdl2 and their developer packages:<br>
 

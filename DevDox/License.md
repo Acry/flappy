@@ -7,4 +7,4 @@ The same license applies to the source code and the documentation of this tutori
 
 ## The assets
 
-I have no clue how those are licensed. They are available literally everwhere. Some people say they are partially copied from Super Mario Bros. If you are in doubt, create your own sprite atlas.
+I have no clue how those are licensed. They are available literally everywhere. Some people say they are partially copied from Super Mario Bros. If you are in doubt, create your own sprite atlas.

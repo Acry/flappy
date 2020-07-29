@@ -1,7 +1,10 @@
-##Publish
+# Publish
 
+## Android fdroid
 
-###IOS
+## MacOs - homebrew
+
+## iOS
 
 App Store
 App Store’s ranking algorithm
@@ -17,9 +20,10 @@ otherwise intentionally do.
 
 )
 
-###Windows
+## Windows
 
 Steam
 
-###Linux
+## Linux
 
+Repositories

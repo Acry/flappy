@@ -1,16 +1,17 @@
 # Flappy Bird - Feature Ideas
 
+- How about a night mode?
+  - bird has a lantern on his head 
+  - ~~use dark pipe during evening~~ done
 
-How about a night mode?
-	bird has a lantern on his head
-	use dark pipe during evening
+- Switch sprite atlas on key
 
-switch sprite atlas on key
+- Parallax scrolling
 
-add parallax scrolling
+- Music
 
-Settings button, same size as pause button
-	on the right side, radial menu
-	difficulty, sound, music
+- Settings button, same size as pause button
+  - on the right side, radial menu
+  - difficulty, sound, music
 
-Title: sinus font scroller
+- Title: sinus font scroller

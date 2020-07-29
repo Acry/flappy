@@ -23,7 +23,7 @@ highscore_counter=0;
 
 Score was not counted correctly
 It is a timing issue.
-Gameloop is still not implemented good.
+Game loop is still not implemented good.
 
 Major Bug
 After render scaling the mouse coordinates are screwed.
@@ -31,7 +31,7 @@ SDL_RenderSetLogicalSize
 SDL_RenderSetViewport
 SDL_RenderSetViewport(SDL_Renderer* renderer,
 const SDL_Rect* rect)
-  
+
 Minor BUG
 flap only on key press, no repeat
 

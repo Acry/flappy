@@ -1,7 +1,7 @@
 # Debug
 
-tbd
+## Debugging gdb
 
-gdb
+## Debugging with Nemiver
 
-Backtraces
+## Debugging with VS Code

@@ -2,15 +2,17 @@
 
 ## A rapid prototype implementation in SDL2-C
 
-Going to implement [this game](DevDox/About_FB.md).
+Going to implement [this game](DevDox/About_FB.md) across following platforms:<br>
 
-Checkout a short Vid introducing the game from 2014: <https://www.youtube.com/watch?v=fQoJZuBwrkU>
+Linux, Android, Windows, MacOS, iOS<br>
+
+Checkout a short vid introducing the game from 2014: <https://www.youtube.com/watch?v=fQoJZuBwrkU>
 
 Nearly feature complete, including sound and animations...
 
 ![](./assets/ss/Screenshot.png)
 
-I did this in 2017.
+- I did this in 2017.
 
 If you can't follow the tutorial, check: [Getting started with SDL2-C](https://acry.github.io/c.html)
 

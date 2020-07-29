@@ -1,4 +1,13 @@
-## Intro
+## Tool chain
+
+- OS: Arch Linux - Rolling Releases
+- UI: Gnome
+- Shell: Bash
+- IDE: VS Code
+- CC: GNU GCC
+- Build system: GNU Make
+- Debugger: gdb with UI: Nemiver
+- Testing: tbd
 
 ## Testing step
 

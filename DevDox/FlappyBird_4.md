@@ -1,6 +1,6 @@
 # Flappy Bird - C/SDL2-Implementation - Part 4
 
-<< [Part 3](FlappyBird_3.md) | [TOC](TOC.md) | [Part 5](Patience.md) >><br>
+<< [Part 3](FlappyBird_3.md) | [TOC](TOC.md) | [Part 5](FlappyBird_5.md) >><br>
 
 Scores and hiscores
 
@@ -288,7 +288,7 @@ Currently there is no error-checking in read/write. That is bad, but works for m
 
 ## Special
 
-Since I am not using a debugger here, I am gonna strip the binary for the first time, to see what it will do:
+I am gonna strip the binary for the first time, to see what it will do:
 
 ls -l 4b is at 61128 bytes / 60k
 
@@ -310,4 +310,4 @@ The digit bitmap rendering took me quite a while. Imo that's not worth doing it 
 
 Need to render the hiscore, the medals and the new hiscore badge. Finally it is time to add the sound.
 
-<< [Part 3](FlappyBird_3.md) | [TOC](TOC.md) | [Part 5](Patience.md) >><br>
+<< [Part 3](FlappyBird_3.md) | [TOC](TOC.md) | [Part 5](FlappyBird_5.md) >><br>

@@ -1,3 +1,4 @@
+FlappyBird_6.md
 *.dll
 .kdev4/
 LICENSE.zlib.txt
@@ -8,12 +9,12 @@ Builds/Linux/1*
 Builds/Linux/2*
 Builds/Linux/3*
 Builds/Linux/4*
+Builds/Linux/5*
 Builds/Windows/flap*
 markdown_help.md
 todo.md
 27.c
 angle.c
-FlappyBird_5.md
 Static Linkage.md
 *workspace
 Makefile_static

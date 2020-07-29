@@ -11,8 +11,9 @@ I am constantly reworking my notes to create this tutorial so this is work in pr
 [Part 0](FlappyBird_0.md) - Render and animate background, ground, bird.<br>
 [Part 1](FlappyBird_1.md) - Introducing Game-States<br>
 [Part 2](FlappyBird_2.md) - The intro & pause states, plus fun with game physics<br>
-[Part 3](FlappyBird_3.md) - Pipes, Collision & Game Over<br>
+[Part 3](FlappyBird_3.md) - Pipes, collision & game Over<br>
 [Part 4](FlappyBird_4.md) - Scores & hiscores<br>
+[Part 5](FlappyBird_5.md) - More scores & audio<br>
 ...<br>
 [ToDo's](Todo.md) - Where could one polish the game?<br>
 [Ideas](Ideas.md) - How could one change the game?<br>

@@ -11,14 +11,18 @@
 - Increase delay before one can go out of game over screen
 - Music
 
-#### Rating
+## Pause
+
+render pulsating pause
+
+## Rating
 
 Share
 Share button
 → to twitter
 
-#### Leaderboard
+## Leaderboard
 
-### Android
+## Android
 
 ~~save file~~

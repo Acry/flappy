@@ -88,3 +88,9 @@ all: $(TARGETS)
 clean:
 	@rm $(TARGETS) 2>/dev/null || true
 ```
+
+## Compile & debug current file with VSCode
+
+I pushed the vscode workspace. Please be sure to open the workspace with vscode.
+
+Use vscode tasks `make current file`, `run current file` to build or execute a file. If you built it already you can press F5 to debug it.

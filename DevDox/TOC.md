@@ -15,6 +15,7 @@ I am constantly reworking my notes to create this tutorial so this is work in pr
 [Part 3](FlappyBird_3.md) - Pipes, collision & game over<br>
 [Part 4](FlappyBird_4.md) - Scores & hiscores<br>
 [Part 5](FlappyBird_5.md) - More scores & audio<br>
+[Part 6](FlappyBird_6.md) - Screen Transitions<br>
 ...<br>
 [ToDo's](Todo.md) - Where could one polish the game?<br>
 [Ideas](Ideas.md) - How could one change the game?<br>

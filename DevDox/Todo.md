@@ -1,6 +1,7 @@
 # Flappy - TODO
 
 - a c primer
+- emscripten build
 
 ## Common
 

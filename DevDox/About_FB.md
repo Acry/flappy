@@ -39,6 +39,12 @@ https://github.com/hyspace/flappy
 
 [Guideline for creation with libGDX and Java](http://www.kilobolt.com/day-1-flappy-bird---an-in-depth-analysis.html).
 
+[Flappy Gopher](https://github.com/campoy/flappy-gopher) is a clone in Go with bindings for SDL2.
+
+[OpenFlappyBird](https://github.com/deano2390/OpenFlappyBird) using the AndEngine Java
+
+[Flappy Rust](https://github.com/deckarep/flappy-rust) Rust and SDL2.
+
 ## Similar Games
 
 <http://www.helicoptergame.net/> (Flash Game, ca. 2004)

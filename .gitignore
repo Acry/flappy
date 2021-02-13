@@ -1,8 +1,6 @@
 FlappyBird_6.md
 *.dll
-.kdev4/
 LICENSE.zlib.txt
-.vscode/
 apk*
 Builds/Linux/0*
 Builds/Linux/1*
@@ -10,12 +8,13 @@ Builds/Linux/2*
 Builds/Linux/3*
 Builds/Linux/4*
 Builds/Linux/5*
+Builds/Linux/6*
 Builds/Windows/flap*
 markdown_help.md
 todo.md
 27.c
 angle.c
 Static Linkage.md
-*workspace
 Makefile_static
 hiscore
+Code/6.c

@@ -1,7 +1,7 @@
 define colorecho
-      @tput setaf 2
-      @echo $1
-      @tput sgr0
+	@tput setaf 2
+	@echo $1
+	@tput sgr0
 endef
 
 CFLAGS     = -no-pie -ggdb -Wall -Wextra -mtune=native `sdl2-config --cflags`
@@ -28,6 +28,8 @@ TARGETS     = 0 0a 0b 0c 0d 1 1a 1b 2 2a 2b 2c 2d 2e 3a 4 4a 4b 4c 5 5a 5b 5c
 .PHONY: all
 all: $(TARGETS)
 
+# Getting started
+
 0:   $(SRCDIR)helper.c $(SRCDIR)0.c
 	@cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
 	$(call colorecho,"$@ success. ./\"$@\" to execute.")
@@ -49,6 +51,7 @@ all: $(TARGETS)
 	$(call colorecho,"$@ success. ./\"$@\" to execute.")
 
 
+# Game-States
 
 1:   $(SRCDIR)helper_0.c $(SRCDIR)1.c
 	@cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
@@ -63,6 +66,7 @@ all: $(TARGETS)
 	$(call colorecho,"$@ success. ./\"$@\" to execute.")
 
 
+# Playing and Pause
 
 2:   $(SRCDIR)helper_0.c $(SRCDIR)2.c
 	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
@@ -89,6 +93,7 @@ all: $(TARGETS)
 	$(call colorecho,"$@ success. ./\"$@\" to execute.")
 
 
+# Collsion & Game Over
 3:   $(SRCDIR)helper_0.c $(SRCDIR)3.c
 	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
 	$(call colorecho,"$@ success. ./\"$@\" to execute.")
@@ -98,6 +103,7 @@ all: $(TARGETS)
 	$(call colorecho,"$@ success. ./\"$@\" to execute.")
 
 
+# Scoring
 
 4:   $(SRCDIR)helper_0.c $(SRCDIR)4.c
 	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
@@ -115,6 +121,7 @@ all: $(TARGETS)
 	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
 	$(call colorecho,"$@ success. ./\"$@\" to execute.")
 
+# Game Over & HiScores
 
 5:   $(SRCDIR)helper_0.c $(SRCDIR)5.c
 	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
@@ -131,6 +138,13 @@ all: $(TARGETS)
 5c:   $(SRCDIR)helper_1.c $(SRCDIR)5c.c
 	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
 	$(call colorecho,"$@ success. ./\"$@\" to execute.")
+
+# Screen Transitions
+
+# White flash on death
+6:   $(SRCDIR)helper_1.c $(SRCDIR)6.c
+	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
+	$(call colorecho,"$@ success: cd $(LINUX_DIR); ./$@ to execute.")
 
 .PHONY: clean
 clean:

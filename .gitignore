@@ -1,4 +1,3 @@
-FlappyBird_6.md
 *.dll
 LICENSE.zlib.txt
 apk*
@@ -11,10 +10,10 @@ Builds/Linux/5*
 Builds/Linux/6*
 Builds/Windows/flap*
 markdown_help.md
+FlappyBird_next.md
 todo.md
 27.c
 angle.c
 Static Linkage.md
 Makefile_static
 hiscore
-Code/6.c

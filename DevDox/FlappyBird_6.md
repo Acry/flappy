@@ -159,6 +159,76 @@ if (flash){
 }
 ```
 
+#### Fade get ready out
+
+Now I want to fade this two assets out, when the game starts.
+
+![](./Images/GetReady.png)
+
+
+![](./Images/MiniInstructions.png)
+
+They are both from the sprite atlas.
+
+The mini Instructions source and dest rects are called:  
+`intro_src`, `intro_dst`
+
+and for get ready it's:  
+`ready_src`, `ready_dst`
+
+In which game states are they currently rendered?  
+`intro_draw`
+
+```c
+SDL_RenderCopy(Renderer, atlas, &intro_src, &intro_dst);
+SDL_RenderCopy(Renderer, atlas, &ready_src, &ready_dst);
+```
+
+When the playing state starts, it should start fading.
+
+That means both rects need to be rendered within `playing_draw.`  
+That is easy to do. 
+
+Now I need a state var to signal if it should be shown:  
+`show_ready`  
+and a var that holds the alpha value:  
+`ready_alpha`  
+
+in `playing_set` they are set with the wanted values:
+
+```c
+show_ready = 1;
+ready_alpha = 255;
+```
+
+Logic goes to `playing_update`
+```c
+if (show_ready){
+	ready_alpha -= 5;
+	if (ready_alpha == 0) show_ready = 0;
+}
+```
+
+The final piece of code in `playing_draw`:
+
+```c
+if (show_ready){
+
+	SDL_SetTextureAlphaMod(atlas, ready_alpha);
+
+	// get ready
+	SDL_RenderCopy(Renderer, atlas, &ready_src, &ready_dst);
+
+	// mini instructions
+	SDL_RenderCopy(Renderer, atlas, &intro_src, &intro_dst);
+	
+	SDL_SetTextureAlphaMod(atlas, 255);
+}
+```
+
+This time I use `SDL_SetTextureAlphaMod` to set alpha value of the `atlas` before I render it. And set it back to max after both assets are rendered.
+
+That is it. Now 'get ready' and the mini instructions are fading out.
 ## Retrospective
 
 ## Outlook

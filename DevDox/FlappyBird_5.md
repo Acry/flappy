@@ -1,6 +1,6 @@
 # Flappy Bird - C/SDL2-Implementation - Part 5
 
-<< [Part 4](FlappyBird_4.md) | [TOC](TOC.md) | [Part 6](Patience.md) >><br>
+<< [Part 4](FlappyBird_4.md) | [TOC](TOC.md) | [Part 6](FlappyBird_6.md) >><br>
 
 Back to ...
 ![](Images/game-over.png)
@@ -241,4 +241,4 @@ Ofc creating a 2D side scroller can't be compared to the work at a triple A stud
 
 To round the game up I will do the screen transitions and animations next.
 
-<< [Part 4](FlappyBird_4.md) | [TOC](TOC.md) | [Part 6](Patience.md) >><br>
+<< [Part 4](FlappyBird_4.md) | [TOC](TOC.md) | [Part 6](FlappyBird_6.md) >><br>

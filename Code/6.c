@@ -1152,3 +1152,4 @@ void assets_out(void)
 
 	SDL_DestroyTexture(atlas);
 }
+#pragma endregion Functions

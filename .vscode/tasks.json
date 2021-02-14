@@ -4,11 +4,11 @@
         {
             "label": "make current file",
             "type": "shell",
-            "command": "make",
+            "command": "time",
             "options": {
                 "cwd": "${workspaceFolder}",
             },
-            "args": ["${fileBasenameNoExtension}"]
+            "args": ["make", "-j$(nproc)", "${fileBasenameNoExtension}"]
         },
         {
             "label": "run current file",

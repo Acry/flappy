@@ -6,7 +6,7 @@
 
 ### Screen transitions
 
-#### White death flash
+#### White death flash `6.c`
 
 I am gonna let the screen flash white when the bird dies.
 
@@ -159,7 +159,7 @@ if (flash){
 }
 ```
 
-#### Fade get ready out
+#### Fade get ready out `6a.c`
 
 Now I want to fade this two assets out, when the game starts.
 

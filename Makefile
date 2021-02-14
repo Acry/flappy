@@ -151,6 +151,11 @@ all: $(TARGETS)
 	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
 	$(call colorecho,"$@ success: cd $(LINUX_DIR); ./$@ to execute.")
 
+# Fade from and to black
+6b:   $(SRCDIR)helper_1.c $(SRCDIR)6b.c
+	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
+	$(call colorecho,"$@ success: cd $(LINUX_DIR); ./$@ to execute.")
+
 .PHONY: clean
 clean:
 	@cd $(LINUX_DIR) && rm $(TARGETS) 2>/dev/null || true

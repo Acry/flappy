@@ -4,7 +4,17 @@
 
 ## Effects:
 
+Visual effects are most often a lot of work but are loved in the entertainment and advertising area. There are tons of eye-candy in web development, movies, games, commercials.
+
+See [my effects repo](https://github.com/Acry/Demo-Effects-Collection) and [my surfaces repo](https://github.com/Acry/SDL2-Surfaces) for some examples.
+
 ### Screen transitions
+
+Transitions from one scene or action to another can be done in plenty ways.
+
+[See my transitions repo]()
+
+They can be done linear or not. See [my repo for non linear animations](https://github.com/Acry/Non-Linear-Animations)
 
 #### White death flash `6.c`
 
@@ -229,8 +239,94 @@ if (show_ready){
 This time I use `SDL_SetTextureAlphaMod` to set alpha value of the `atlas` before I render it. And set it back to max after both assets are rendered.
 
 That is it. Now 'get ready' and the mini instructions are fading out.
+
+#### Fading game states `6b.c`
+
+Another simple screen transition. Fade to black and the inverse fade from black. Fading in and fading out.
+
+Which game states are going to use that fading?
+
+- Game Over fades to black
+- Intro fades from black and fades to black
+- Idle fades from black and to black
+
+The starting state is idle, set before the main loop starts with `game_state = GS_IDLE;`
+
+Now I am going to fade that from black.
+
+`fade_from_black` state var.
+
+```c
+// TRANSITION
+char flash;
+char show_ready;
+char fade_from_black;
+```
+
+and `Uint8 fade_from_black_alpha;`
+
+I reuse the `transition_rect`
+
+Need to render the `transition_rect` with the current alpha if `fade_from_black` is set. Which I set in `idle_set`.
+
+alpha value needs to altered in `idle_update`.
+
+I use the same logic as before.
+
+Now fade in. The trick here is to start fading when the player acts and switch game state when fade to black is done.
+
+Where are player actions gotten? In `idle_update`.
+
+
+After declaring the globals `fade_to_black` state var and `Uint8 fade_to_black_alpha;` I set them in `idle_set`:
+```c
+fade_to_black = 0;
+fade_to_black_alpha = 0;
+```
+
+in `idle_update` I alter the logic:
+```c
+if (event.type == SDL_MOUSEBUTTONDOWN)
+{
+	if (event.button.button == SDL_BUTTON_LEFT)
+	{
+		if (SDL_PointInRect(&mouse, &play_dst))
+		{	
+			fade_to_black = 1;
+		}
+	}
+}
+
+if (fade_to_black){
+	fade_to_black_alpha += 5;
+	if (fade_to_black_alpha == 255){
+		fade_to_black = 0;
+		intro_set();
+		game_state = GS_INTRO;
+	}
+}
+```
+
+Now the state switches after fading is done.
+The fade in effect in the intro state is analogue to `GS_IDLE` `fade_from_black`.
+
+And `fade_to_black` in `GS_OVER` is analogue to `GS_IDLE`.
 ## Retrospective
 
+That's it. Flashing & fading done. As a left over piece we need to make input wait for transitions. I will do that when I add more input:
+
+- keys
+- joystick
+- game controller
+
 ## Outlook
+
+In part 7 I will do the left over animations.  
+
+We got some more moving parts:
+- scoreboard slides in
+- game over text moves
+- sparkles on the medals
+- the score on the scoreboard counts up
 
 << [Part 5](FlappyBird_5.md) | [TOC](TOC.md) | [Part 7](Patience.md) >><br>

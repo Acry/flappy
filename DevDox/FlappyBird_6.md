@@ -12,7 +12,7 @@ See [my effects repo](https://github.com/Acry/Demo-Effects-Collection) and [my s
 
 Transitions from one scene or action to another can be done in plenty ways.
 
-[See my transitions repo]()
+[See my transitions repo](https://github.com/Acry/SDL-Transitions)
 
 They can be done linear or not. See [my repo for non linear animations](https://github.com/Acry/Non-Linear-Animations)
 

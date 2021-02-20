@@ -17,3 +17,4 @@ angle.c
 Static Linkage.md
 Makefile_static
 hiscore
+*.log

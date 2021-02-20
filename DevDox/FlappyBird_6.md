@@ -1,6 +1,6 @@
 # Flappy Bird - C/SDL2-Implementation - Part 6
 
-<< [Part 5](FlappyBird_5.md) | [TOC](TOC.md) | [Part 7](Patience.md) >><br>
+<< [Part 5](FlappyBird_5.md) | [TOC](TOC.md) | [Part 7](FlappyBird_7.md) >><br>
 
 ## Effects:
 
@@ -329,4 +329,4 @@ We got some more moving parts:
 - sparkles on the medals
 - the score on the scoreboard counts up
 
-<< [Part 5](FlappyBird_5.md) | [TOC](TOC.md) | [Part 7](Patience.md) >><br>
+<< [Part 5](FlappyBird_5.md) | [TOC](TOC.md) | [Part 7](FlappyBird_7.md) >><br>

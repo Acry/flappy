@@ -8,6 +8,7 @@ Builds/Linux/3*
 Builds/Linux/4*
 Builds/Linux/5*
 Builds/Linux/6*
+Builds/Linux/7*
 Builds/Windows/flap*
 markdown_help.md
 FlappyBird_next.md
@@ -18,3 +19,4 @@ Static Linkage.md
 Makefile_static
 hiscore
 *.log
+Flappy Bird Gameplay-fQoJZuBwrkU.mp4

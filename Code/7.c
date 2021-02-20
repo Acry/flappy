@@ -74,7 +74,7 @@ double gy = 800;
 Uint32 FPS = 60;
 
 // Pipes
-SDL_Rect pipe_src;				// need one source rectangle for the pipes
+SDL_Rect pipe_src;		  // need one source rectangle for the pipes
 SDL_Rect pipe_dst[PIPES]; // but as many dest-rests as max. shown
 
 // Score
@@ -98,6 +98,11 @@ char show_ready;
 char fade_from_black;
 char fade_to_black;
 
+enum direction
+{
+	UP,
+	DOWN
+};
 #pragma endregion common
 
 #pragma region VISIBLES
@@ -131,8 +136,13 @@ SDL_Rect intro_dst;
 // Game Over
 SDL_Rect over_src; // Game Over Word
 SDL_Rect over_dst; // Game Over Word
-SDL_Rect sum_src;	 // summary board
-SDL_Rect sum_dst;	 // summary board
+int over_dst_final_y;
+int over_dst_top_y;
+char over_animation;
+enum direction over_animation_direction;
+
+SDL_Rect sum_src;  // Summary Board
+SDL_Rect sum_dst;  // Summary Board
 
 SDL_Rect score_to_board_src[10];
 SDL_Rect score_to_board_dst[3];
@@ -140,7 +150,7 @@ SDL_Rect hiscore_to_board_dst[3];
 SDL_Rect new_hiscore_src;
 SDL_Rect new_hiscore_dst;
 
-// medals
+// Medals
 SDL_Rect medal_src;
 SDL_Rect medal_dst;
 
@@ -834,10 +844,16 @@ void game_over_set(void)
 	over_src.x = 790;
 	over_src.y = 118;
 
+
+	over_dst_top_y = 120;
+	over_dst_final_y = 130;
 	over_dst.w = over_src.w;
 	over_dst.h = over_src.h;
 	over_dst.x = (ww / 2) - (over_dst.w / 2);
-	over_dst.y = 130;
+	over_dst.y = over_dst_final_y;
+
+	over_animation = 1;
+	over_animation_direction = UP;
 
 	// Summary rects
 	sum_src.w = 231;
@@ -970,6 +986,15 @@ void game_over_Update(void)
 	if (flash){
 		alpha -= 15;
 		if (alpha == 0) flash = 0;
+	}
+	if (over_animation){
+		if (over_animation_direction == UP){
+			over_dst.y -= 1;
+			if (over_dst.y == over_dst_top_y) over_animation_direction = DOWN;
+		} else if (over_animation_direction == DOWN){
+			over_dst.y += 1;
+			if (over_dst.y == over_dst_final_y)  over_animation = 0;
+		}
 	}
 	if (fade_to_black){
 		fade_to_black_alpha += 5;

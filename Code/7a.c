@@ -7,7 +7,7 @@
 
 /* DEFINED PROGRESS GOALS
  * 
- * Animations: Game Over Text
+ * Animations: Scoreboard
  * 
  */
 #pragma endregion DESCRIPTION
@@ -141,8 +141,12 @@ int over_dst_top_y;
 char over_animation;
 enum direction over_animation_direction;
 
-SDL_Rect sum_src;  // Summary Board
-SDL_Rect sum_dst;  // Summary Board
+// Summary Board | Scoreboard
+SDL_Rect sum_src;
+SDL_Rect sum_dst;
+int sum_dst_final_y;
+int sum_dst_start_y;
+char sum_animation;
 
 SDL_Rect score_to_board_src[10];
 SDL_Rect score_to_board_dst[3];
@@ -838,6 +842,7 @@ void paused_draw(void)
 void game_over_set(void)
 {
 	fade_to_black_alpha = 0;
+
 	// Game over literals
 	over_src.w = 197;
 	over_src.h = 52;
@@ -855,16 +860,21 @@ void game_over_set(void)
 	over_animation = 1;
 	over_animation_direction = UP;
 
-	// Summary rects
+	// Summary rects | Scoreboard
 	sum_src.w = 231;
 	sum_src.h = 123;
 	sum_src.x = 6;
 	sum_src.y = 518;
 
+	sum_dst_final_y = 184;
+	sum_dst_start_y = wh; // 512
+
 	sum_dst.w = sum_src.w;
 	sum_dst.h = sum_src.h;
 	sum_dst.x = (ww / 2) - (sum_dst.w / 2);
-	sum_dst.y = 185;
+	sum_dst.y = sum_dst_start_y;
+
+	sum_animation = 1;
 
 	// init medal source rect
 	// set src.x on on score
@@ -995,6 +1005,12 @@ void game_over_Update(void)
 			over_dst.y += 1;
 			if (over_dst.y == over_dst_final_y)  over_animation = 0;
 		}
+	} else if (sum_animation){
+		sum_dst.y -= 12;
+		if (sum_dst.y <= sum_dst_final_y){
+			sum_dst.y =  sum_dst_final_y;
+			sum_animation = 0;
+		}
 	}
 	if (fade_to_black){
 		fade_to_black_alpha += 5;
@@ -1011,14 +1027,17 @@ void game_over_Draw(void)
 	playing_draw();
 	SDL_RenderCopy(Renderer, atlas, &over_src, &over_dst);
 	SDL_RenderCopy(Renderer, atlas, &sum_src, &sum_dst);
-	if (medal_src.x)
-		SDL_RenderCopy(Renderer, atlas, &medal_src, &medal_dst);
-	render_score_to_board();
-	render_hiscore_to_board();
-	if (new_hiscore_dst.x)
-		SDL_RenderCopy(Renderer, atlas, &new_hiscore_src, &new_hiscore_dst);
-	SDL_RenderCopy(Renderer, atlas, &play_src, &play_dst);
-	SDL_RenderCopy(Renderer, atlas, &lb_src, &lb_dst);
+
+	if (!sum_animation){
+		if (medal_src.x)
+			SDL_RenderCopy(Renderer, atlas, &medal_src, &medal_dst);
+		if (new_hiscore_dst.x)
+			SDL_RenderCopy(Renderer, atlas, &new_hiscore_src, &new_hiscore_dst);
+		render_score_to_board();
+		render_hiscore_to_board();
+		SDL_RenderCopy(Renderer, atlas, &play_src, &play_dst);
+		SDL_RenderCopy(Renderer, atlas, &lb_src, &lb_dst);
+	}
 	if (fade_to_black)
 	{
 		SDL_SetRenderDrawColor(Renderer, 0, 0, 0, fade_to_black_alpha);

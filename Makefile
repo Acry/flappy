@@ -23,7 +23,7 @@ testing: FORCE
 	@echo $(WINDOWS_DIR)
 FORCE:
 
-TARGETS     = 0 0a 0b 0c 0d 1 1a 1b 2 2a 2b 2c 2d 2e 3a 4 4a 4b 4c 5 5a 5b 5c 6 6a 6b 7
+TARGETS     = 0 0a 0b 0c 0d 1 1a 1b 2 2a 2b 2c 2d 2e 3a 4 4a 4b 4c 5 5a 5b 5c 6 6a 6b 7a
 
 .PHONY: all
 all: $(TARGETS)
@@ -157,7 +157,13 @@ all: $(TARGETS)
 	$(call colorecho,"$@ success: cd $(LINUX_DIR); ./$@ to execute.")
 
 # Animations
+# Game Over
 7:   $(SRCDIR)helper_1.c $(SRCDIR)7.c
+	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
+	$(call colorecho,"$@ success: cd $(LINUX_DIR); ./$@ to execute.")
+
+# Scoreboard
+7a:   $(SRCDIR)helper_1.c $(SRCDIR)7a.c
 	cc $(CFLAGS) -o $(LINUX_DIR)$@ $+ $(LDFLAGS)
 	$(call colorecho,"$@ success: cd $(LINUX_DIR); ./$@ to execute.")
 

@@ -106,6 +106,45 @@ if (over_animation){
 That's it. The image is moving.
 ### Scoreboard slides in
 
+The Scoreboard slides in from the bottom.
+
+Altered is: `sum_dst.y`
+
+`game_over_set`
+```c
+sum_animation = 1;
+sum_dst_final_y = 184;
+sum_dst_start_y = wh; // 512
+```
+
+`game_over_Update`
+
+The `else if` waits for the game over animation.
+```c
+ else if (sum_animation){
+		sum_dst.y -= 12;
+		if (sum_dst.y <= sum_dst_final_y){
+			sum_dst.y =  sum_dst_final_y;
+			sum_animation = 0;
+		}
+	}
+```
+
+`game_over_Draw`  
+Now I wait for the animation, before I render the rest
+```c
+if (!sum_animation){
+    if (medal_src.x)
+        SDL_RenderCopy(Renderer, atlas, &medal_src, &medal_dst);
+    if (new_hiscore_dst.x)
+        SDL_RenderCopy(Renderer, atlas, &new_hiscore_src, &new_hiscore_dst);
+    render_score_to_board();
+    render_hiscore_to_board();
+    SDL_RenderCopy(Renderer, atlas, &play_src, &play_dst);
+    SDL_RenderCopy(Renderer, atlas, &lb_src, &lb_dst);
+}
+```
+
 ### The score counts up
 
 ### Sparkling medals

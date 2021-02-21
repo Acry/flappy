@@ -147,6 +147,67 @@ if (!sum_animation){
 
 ### The score counts up
 
+Goal:  
+`render_score_to_board` renders each score digit pretty quickly counting up.
+
+Introduce a new var: counting_score  
+
+In `game_over_set` I set `counting_score` to `0`  
+
+In `render_score_to_board` substitute `current_score` with `counting_score`.
+
+And increase `counting_score` while smaller than `current_score` in `game_over_update`
+
+Updating a number goes to ...update
+```c
+if (!sum_animation){
+    if (counting_score < current_score)
+        counting_score++;
+}
+```
+
+Actually I could leave it as it is, but I am not satisfied right now, because
+there is one problem left, the animation speed. Since the state integration is still a feature problem I will discuss in depth, I need a simple solution for now, cutting the animation speed to the half would be enough for the moment.
+
+How can I do that?
+
+The current heartbeat of the game is v-sync.
+
+Since need a counter for the next section too, I will create a counter which raises every 16.67 ms.
+
+```c
+int anim_counter;
+```
+
+`game_over_set`
+```c
+anim_counter = 0;
+```
+
+`game_over_update`
+```c
+anim_counter++;
+```
+If I want to trigger every ~200 ms (200/17=~12) I need to check 
+if `anim_counter` is divisible `12`.
+
+Gonna use modulo here:
+`12%12=0`, `24%12=0`
+```c
+!(anim_counter%12)
+```
+
+```c
+if (!sum_animation && !(anim_counter%12)){
+    if (counting_score < current_score)
+        counting_score++;
+}
+```
+
+Now the counter is way slower than in the original game, but for demonstration purposes and small scores it is good enough.
+
+Wonderful, head on to the last animation.
+
 ### Sparkling medals
 
 ## Retrospective

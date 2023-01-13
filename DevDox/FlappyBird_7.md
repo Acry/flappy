@@ -8,7 +8,6 @@ Linear Animations: Images are shown at another spot at a later point in time.
 
 ### Game over text moves
 
-
 ![](Images/game-over.png)
 
 How does the Animation look like?
@@ -36,8 +35,8 @@ set animation finish
 over_animation = 1
 ```
 
-Do not forget SDL's inverted y.
-0 is top 0+n down.
+Do not forget SDL's inverted y-axis.
+0 is top, 0+n goes down.
 
 Where is it rendered?
 
@@ -210,8 +209,65 @@ Wonderful, head on to the last animation.
 
 ### Sparkling medals
 
-## Retrospective
+![](./Images/sparkles.png)
+![](./Images/gold_medal.png)
 
-## Outlook
+Problems to solve:  
+switch src rect randomly between 1-3  
+show dst rect randomly
+show it on the circle of a medal
+
+rand  
+circle not square  
+https://stackoverflow.com/a/50746409/9721479
+
+https://rosettacode.org/wiki/Constrained_random_points_on_a_circle#C
+
+```text
+SDL_Rect spark_src;
+SDL_Rect spark_dst;
+
+float spark_counter = 0;
+float sparkle_anim_counter;## Retrospective
+
+char sparkle_anim;
+char spark = 0;
+
+//sparkles
+spark_src.x = 245;
+spark_src.y = 717;
+spark_src.w = 10;
+spark_src.h = 10;
+
+spark_dst.x = 0;
+spark_dst.y = 0;
+spark_dst.w = 10;
+spark_dst.h = 10;
+    
+spark_dst.x = rand() % ((medal_dst.x + medal_dst.w) + 1 - medal_dst.x) + medal_dst.x;
+
+spark_dst.y = rand() % ((medal_dst.y + medal_dst.h) + 1 - medal_dst.y) + medal_dst.y;## Outlook
+
+//change sparkle frame
+if (sparkle_anim)
+{
+    if (spark_src.y == 717)
+    {
+        spark_src.y = 727;
+    }
+    else if (spark_src.y == 727)
+    {
+        spark_src.y = 741;
+    }
+    else if (spark_src.y == 741)
+    {
+        spark_src.y = 717;
+    }
+    sparkle_anim = 0;
+}
+//END 	SPARKLES
+
+SDL_RenderCopy(Renderer, Texture, &spark_src, &spark_dst);
+```
 
 << [Part 6](FlappyBird_6.md) | [TOC](TOC.md) | [Part 8](Patience.md) >><br>

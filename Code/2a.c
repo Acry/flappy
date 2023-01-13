@@ -249,7 +249,7 @@ void idle_set(void)
 	play_dst.x = 20;
 	play_dst.y = grd_dst.y - play_dst.h;
 
-	// Leaderbord button
+	// Leaderboard button
 	lb_src.x = 828;
 	lb_src.y = 236;
 	lb_src.w = 104;

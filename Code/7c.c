@@ -7,8 +7,8 @@
 
 /* DEFINED PROGRESS GOALS
  * 
- * render score to board
- * render high score + badge
+ * Animations: Sparkles
+ * 
  */
 #pragma endregion DESCRIPTION
 
@@ -45,6 +45,7 @@
 #pragma endregion DATASTRUCTURES
 
 #pragma region GLOBALS
+#pragma region common
 int ww = WW;
 int wh = WH;
 
@@ -71,9 +72,10 @@ double vx = 200;
 double gy = 800;
 
 Uint32 FPS = 60;
+int anim_counter;
 
 // Pipes
-SDL_Rect pipe_src;				// need one source rectangle for the pipes
+SDL_Rect pipe_src;		  // need one source rectangle for the pipes
 SDL_Rect pipe_dst[PIPES]; // but as many dest-rests as max. shown
 
 // Score
@@ -81,6 +83,7 @@ SDL_Rect number_src[10];
 SDL_Rect number_dst[10];
 int digits[10];
 Uint16 current_score;
+Uint16 counting_score;
 int highest_score;
 SDL_bool pipe_passed_player[3];
 
@@ -90,6 +93,19 @@ Mix_Chunk *flap_chunk = NULL;
 Mix_Chunk *hit_chunk = NULL; // collision
 Mix_Chunk *point_chunk = NULL;
 Mix_Chunk *wooosh_chunk = NULL;
+
+// TRANSITION
+char flash;
+char show_ready;
+char fade_from_black;
+char fade_to_black;
+
+enum direction
+{
+	UP,
+	DOWN
+};
+#pragma endregion common
 
 #pragma region VISIBLES
 SDL_Surface *temp_surface = NULL;
@@ -122,17 +138,33 @@ SDL_Rect intro_dst;
 // Game Over
 SDL_Rect over_src; // Game Over Word
 SDL_Rect over_dst; // Game Over Word
-SDL_Rect sum_src;	 // summary board
-SDL_Rect sum_dst;	 // summary board
+int over_dst_final_y;
+int over_dst_top_y;
+char over_animation;
+enum direction over_animation_direction;
+
+// Summary Board | Scoreboard
+SDL_Rect sum_src;
+SDL_Rect sum_dst;
+int sum_dst_final_y;
+int sum_dst_start_y;
+char sum_animation;
 
 SDL_Rect score_to_board_src[10];
 SDL_Rect score_to_board_dst[3];
 SDL_Rect hiscore_to_board_dst[3];
 SDL_Rect new_hiscore_src;
 SDL_Rect new_hiscore_dst;
-// medals
+
+// Medals
 SDL_Rect medal_src;
 SDL_Rect medal_dst;
+
+SDL_Rect transition_rect;
+Uint8 alpha;
+Uint8 ready_alpha;
+Uint8 fade_from_black_alpha;
+Uint8 fade_to_black_alpha;
 #pragma endregion VISIBLES
 
 #pragma region INPUT
@@ -170,10 +202,12 @@ void game_over_Update(void);
 void game_over_Draw(void);
 
 void update_ground(void);
-void update_bird(void);
 void update_pipes(void);
+
+void bird_dies(void);
 void bird_flap(void);
 void bird_slide(void);
+void bird_update(void);
 
 void render_score(void);
 void render_score_to_board(void);
@@ -204,7 +238,7 @@ int main(int argc, char *argv[])
 #pragma region WINDOW
 	SDL_SetWindowPosition(Window, 0, 0);
 	SDL_SetWindowSize(Window, ww, wh);
-	SDL_SetWindowTitle(Window, "5c - Sounds");
+	SDL_SetWindowTitle(Window, "7 - Animations");
 	SDL_ShowWindow(Window);
 #pragma endregion WINDOW
 
@@ -218,6 +252,7 @@ int main(int argc, char *argv[])
 		game_state_check();
 		// SDL_RenderClear(Renderer);
 		SDL_RenderPresent(Renderer);
+
 	}
 #pragma endregion MAIN LOOP
 
@@ -272,10 +307,21 @@ void assets_in(void)
 
 	temp_surface = IMG_Load("../../assets/gfx/atlas2.png");
 	atlas = SDL_CreateTextureFromSurface(Renderer, temp_surface);
+
+	transition_rect.h = wh;
+	transition_rect.w = ww;
+	transition_rect.x = 0;
+	transition_rect.y = 0;
 }
 
+#pragma region idle
 void idle_set(void)
 {
+	fade_from_black = 1;
+	fade_from_black_alpha = 255;
+	fade_to_black = 0;
+	fade_to_black_alpha = 0;
+
 	// Select BG
 	int bg = rand() % 2;
 	if (bg)
@@ -392,9 +438,8 @@ void idle_update(void)
 			if (event.button.button == SDL_BUTTON_LEFT)
 			{
 				if (SDL_PointInRect(&mouse, &play_dst))
-				{
-					intro_set();
-					game_state = GS_INTRO;
+				{	
+					fade_to_black = 1;
 				}
 			}
 		}
@@ -404,6 +449,18 @@ void idle_update(void)
 			{
 				running = 0;
 			}
+		}
+	}
+	if (fade_from_black){
+		fade_from_black_alpha -= 5;
+		if (fade_from_black_alpha == 0) fade_from_black = 0;
+	}
+	if (fade_to_black){
+		fade_to_black_alpha += 5;
+		if (fade_to_black_alpha == 255){
+			fade_to_black = 0;
+			intro_set();
+			game_state = GS_INTRO;
 		}
 	}
 	update_ground();
@@ -426,10 +483,25 @@ void idle_draw(void)
 	SDL_RenderCopy(Renderer, atlas, &bird_src, &bird_dst);
 
 	SDL_RenderCopy(Renderer, atlas, &cr_src, &cr_dst);
-}
 
+	if (fade_from_black)
+	{
+		SDL_SetRenderDrawColor(Renderer, 0, 0, 0, fade_from_black_alpha);
+		SDL_RenderFillRect(Renderer, &transition_rect);
+	}
+	if (fade_to_black)
+	{
+		SDL_SetRenderDrawColor(Renderer, 0, 0, 0, fade_to_black_alpha);
+		SDL_RenderFillRect(Renderer, &transition_rect);
+	}
+}
+#pragma endregion idle
+
+#pragma region intro
 void intro_set(void)
 {
+	fade_from_black = 1;
+	fade_from_black_alpha = 255;
 	// Get Ready
 	ready_src.w = 184;
 	ready_src.h = 50;
@@ -509,6 +581,10 @@ void intro_update(void)
 			}
 		}
 	}
+	if (fade_from_black){
+		fade_from_black_alpha -= 5;
+		if (fade_from_black_alpha == 0) fade_from_black = 0;
+	}
 	update_ground();
 	bird_slide();
 	bird_flap();
@@ -523,10 +599,23 @@ void intro_draw(void)
 	SDL_RenderCopy(Renderer, atlas, &ready_src, &ready_dst);
 	SDL_RenderCopy(Renderer, atlas, &bird_src, &bird_dst);
 	render_score();
+	if (fade_from_black)
+	{
+		SDL_SetRenderDrawColor(Renderer, 0, 0, 0, fade_from_black_alpha);
+		SDL_RenderFillRect(Renderer, &transition_rect);
+	}
 }
+#pragma endregion intro
 
+#pragma region playing
 void playing_set(void)
 {
+	// white flash
+	alpha = 0;
+
+	// get ready and mini instructions
+	show_ready = 1;
+	ready_alpha = 255;
 #pragma region pipes
 	// select day or night pipe by background
 	if (bg_src.x == 0)
@@ -627,26 +716,26 @@ void playing_update(void)
 			}
 		}
 	}
-	if (SDL_HasIntersection(&bird_dst, &grd_dst))
-	{
-		Mix_PlayChannel(-1, hit_chunk, 0);
-		Mix_PlayChannel(-1, collide_chunk, 0);
-		game_over_set();
-		game_state = GS_OVER;
+	if (show_ready){
+		ready_alpha -= 5;
+		if (ready_alpha == 0) show_ready = 0;
 	}
 	update_pipes();
-	update_bird();
 	update_ground();
+	bird_update();
 	bird_flap();
 	playing_draw();
 }
 
 void playing_draw(void)
 {
+	// background
 	SDL_RenderCopy(Renderer, atlas, &bg_src, NULL);
+
+	// bird
 	SDL_RenderCopyEx(Renderer, atlas, &bird_src, &bird_dst, bird_angle, NULL, 0);
 
-	// Render pipes
+	// render pipes
 	int i;
 	for (i = 0; i < PIPES; i++)
 	{
@@ -656,11 +745,37 @@ void playing_draw(void)
 			SDL_RenderCopy(Renderer, atlas, &pipe_src, &pipe_dst[i]);
 	}
 
+	// ground
 	SDL_RenderCopy(Renderer, atlas, &grd_src, &grd_dst);
-	SDL_RenderCopy(Renderer, atlas, &pause_src, &pause_dst);
-	render_score();
-}
 
+	if (show_ready){
+
+		SDL_SetTextureAlphaMod(atlas, ready_alpha);
+
+		// get ready
+		SDL_RenderCopy(Renderer, atlas, &ready_src, &ready_dst);
+
+		// mini instructions
+		SDL_RenderCopy(Renderer, atlas, &intro_src, &intro_dst);
+		
+		SDL_SetTextureAlphaMod(atlas, 255);
+	}
+
+	// pause sign
+	SDL_RenderCopy(Renderer, atlas, &pause_src, &pause_dst);
+
+	render_score();
+
+	// white flash on death
+	if (flash)
+	{
+		SDL_SetRenderDrawColor(Renderer, 255, 255, 255, alpha);
+		SDL_RenderFillRect(Renderer, &transition_rect);
+	}
+}
+#pragma endregion playing
+
+#pragma region paused
 void paused_set(void)
 {
 	pause_src.w = 26;
@@ -723,29 +838,45 @@ void paused_draw(void)
 	//TBD: render paused image, maybe greyout screen
 	playing_draw();
 }
+#pragma endregion paused
+
+#pragma region game over
 void game_over_set(void)
 {
+	fade_to_black_alpha = 0;
+	anim_counter = 0;
 	// Game over literals
 	over_src.w = 197;
 	over_src.h = 52;
 	over_src.x = 790;
 	over_src.y = 118;
 
+
+	over_dst_top_y = 120;
+	over_dst_final_y = 130;
 	over_dst.w = over_src.w;
 	over_dst.h = over_src.h;
 	over_dst.x = (ww / 2) - (over_dst.w / 2);
-	over_dst.y = 130;
+	over_dst.y = over_dst_final_y;
 
-	// Summary rects
+	over_animation = 1;
+	over_animation_direction = UP;
+
+	// Summary rects | Scoreboard
 	sum_src.w = 231;
 	sum_src.h = 123;
 	sum_src.x = 6;
 	sum_src.y = 518;
 
+	sum_dst_final_y = 184;
+	sum_dst_start_y = wh; // 512
+
 	sum_dst.w = sum_src.w;
 	sum_dst.h = sum_src.h;
 	sum_dst.x = (ww / 2) - (sum_dst.w / 2);
-	sum_dst.y = 185;
+	sum_dst.y = sum_dst_start_y;
+
+	sum_animation = 1;
 
 	// init medal source rect
 	// set src.x on on score
@@ -772,7 +903,7 @@ void game_over_set(void)
 
 	// score to board
 	int i;
-
+	counting_score = 0;
 	// init medium sized digits source rects
 	for (i = 0; i < 10; i++)
 	{
@@ -850,8 +981,7 @@ void game_over_Update(void)
 			{
 				if (SDL_PointInRect(&mouse, &play_dst))
 				{
-					idle_set();
-					game_state = GS_IDLE;
+					fade_to_black = 1;
 				}
 			}
 		}
@@ -863,8 +993,40 @@ void game_over_Update(void)
 			}
 		}
 	}
-	update_bird();
+	anim_counter++;
+	bird_update();
 	game_over_Draw();
+	if (flash){
+		alpha -= 15;
+		if (alpha == 0) flash = 0;
+	}
+	if (over_animation){
+		if (over_animation_direction == UP){
+			over_dst.y -= 1;
+			if (over_dst.y == over_dst_top_y) over_animation_direction = DOWN;
+		} else if (over_animation_direction == DOWN){
+			over_dst.y += 1;
+			if (over_dst.y == over_dst_final_y)  over_animation = 0;
+		}
+	} else if (sum_animation){
+		sum_dst.y -= 12;
+		if (sum_dst.y <= sum_dst_final_y){
+			sum_dst.y =  sum_dst_final_y;
+			sum_animation = 0;
+		}
+	}
+	if (!sum_animation && !(anim_counter%12)){
+		if (counting_score < current_score)
+			counting_score++;
+	}
+	if (fade_to_black){
+		fade_to_black_alpha += 5;
+		if (fade_to_black_alpha == 255){
+			fade_to_black = 0;
+			idle_set();
+			game_state = GS_IDLE;
+		}
+	}
 }
 
 void game_over_Draw(void)
@@ -872,24 +1034,39 @@ void game_over_Draw(void)
 	playing_draw();
 	SDL_RenderCopy(Renderer, atlas, &over_src, &over_dst);
 	SDL_RenderCopy(Renderer, atlas, &sum_src, &sum_dst);
-	if (medal_src.x)
-		SDL_RenderCopy(Renderer, atlas, &medal_src, &medal_dst);
-	render_score_to_board();
-	render_hiscore_to_board();
-	if (new_hiscore_dst.x)
-		SDL_RenderCopy(Renderer, atlas, &new_hiscore_src, &new_hiscore_dst);
-	SDL_RenderCopy(Renderer, atlas, &play_src, &play_dst);
-	SDL_RenderCopy(Renderer, atlas, &lb_src, &lb_dst);
+
+	if (!sum_animation){
+		if (medal_src.x)
+			SDL_RenderCopy(Renderer, atlas, &medal_src, &medal_dst);
+		if (new_hiscore_dst.x)
+			SDL_RenderCopy(Renderer, atlas, &new_hiscore_src, &new_hiscore_dst);
+		render_score_to_board();
+		render_hiscore_to_board();
+		SDL_RenderCopy(Renderer, atlas, &play_src, &play_dst);
+		SDL_RenderCopy(Renderer, atlas, &lb_src, &lb_dst);
+	}
+	if (fade_to_black)
+	{
+		SDL_SetRenderDrawColor(Renderer, 0, 0, 0, fade_to_black_alpha);
+		SDL_RenderFillRect(Renderer, &transition_rect);
+	}
 }
+#pragma endregion game over
 
 void update_ground(void)
 {
 	grd_src.x += 1;
 	if (grd_src.x >= 48 + 584)
 		grd_src.x = 584;
+
+	// Check collision with ground
+	if (SDL_HasIntersection(&bird_dst, &grd_dst))
+	{
+		bird_dies();
+	}
 }
 
-void update_bird(void)
+void bird_update(void)
 {
 	//set bird position
 	bird_dst.y += vy / FPS;
@@ -964,17 +1141,24 @@ void update_pipes(void)
 			}
 		}
 	}
-	// Check collision of pipes and bird
+
+	// Check collision with pipes
 	for (i = 0; i < PIPES; i++)
 	{
 		if (SDL_HasIntersection(&bird_dst, &pipe_dst[i]))
 		{
-			Mix_PlayChannel(-1, hit_chunk, 0);
-			Mix_PlayChannel(-1, collide_chunk, 0);
-			game_over_set();
-			game_state = GS_OVER;
+			bird_dies();
 		}
 	}
+}
+
+void bird_dies(void){
+	Mix_PlayChannel(-1, hit_chunk, 0);
+	Mix_PlayChannel(-1, collide_chunk, 0);
+	alpha = 255;
+	flash = 1;
+	game_over_set();
+	game_state = GS_OVER;
 }
 
 void bird_flap(void)
@@ -1015,6 +1199,7 @@ void bird_slide(void)
 	}
 }
 
+#pragma region score
 void render_score(void)
 {
 
@@ -1044,24 +1229,24 @@ void render_score(void)
 void render_score_to_board(void)
 {
 
-	if (current_score > 99)
+	if (counting_score > 99)
 	{
 		score_to_board_dst[0].x = 222 - 15 * 2;
 		score_to_board_dst[1].x = 222 - 15;
 		score_to_board_dst[2].x = 222;
-		SDL_RenderCopy(Renderer, atlas, &score_to_board_src[((current_score - (current_score % 10)) / 100) % 10], &score_to_board_dst[0]);
-		SDL_RenderCopy(Renderer, atlas, &score_to_board_src[((current_score - (current_score % 10)) / 10) % 10], &score_to_board_dst[1]);
-		SDL_RenderCopy(Renderer, atlas, &score_to_board_src[current_score % 10], &score_to_board_dst[2]);
+		SDL_RenderCopy(Renderer, atlas, &score_to_board_src[((counting_score - (counting_score % 10)) / 100) % 10], &score_to_board_dst[0]);
+		SDL_RenderCopy(Renderer, atlas, &score_to_board_src[((counting_score - (counting_score % 10)) / 10) % 10], &score_to_board_dst[1]);
+		SDL_RenderCopy(Renderer, atlas, &score_to_board_src[counting_score % 10], &score_to_board_dst[2]);
 	}
-	else if (current_score > 9)
+	else if (counting_score > 9)
 	{
 		score_to_board_dst[0].x = 222 - 15;
 		score_to_board_dst[1].x = 222;
-		SDL_RenderCopy(Renderer, atlas, &score_to_board_src[(current_score - (current_score % 10)) / 10], &score_to_board_dst[0]);
-		SDL_RenderCopy(Renderer, atlas, &score_to_board_src[current_score % 10], &score_to_board_dst[1]);
+		SDL_RenderCopy(Renderer, atlas, &score_to_board_src[(counting_score - (counting_score % 10)) / 10], &score_to_board_dst[0]);
+		SDL_RenderCopy(Renderer, atlas, &score_to_board_src[counting_score % 10], &score_to_board_dst[1]);
 	}
 	else
-		SDL_RenderCopy(Renderer, atlas, &score_to_board_src[current_score], &score_to_board_dst[0]);
+		SDL_RenderCopy(Renderer, atlas, &score_to_board_src[counting_score], &score_to_board_dst[0]);
 }
 
 void render_hiscore_to_board(void)
@@ -1109,6 +1294,7 @@ void write_highscore(void)
 	SDL_RWwrite(file, &highest_score, sizeof(int), 1);
 	SDL_RWclose(file);
 }
+#pragma endregion score
 
 void assets_out(void)
 {

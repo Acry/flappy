@@ -11,7 +11,11 @@
       "SRCDIR",
       "rects",
       "wooosh"
-    ]
+    ],
+    "files.associations": {
+      "*.json": "jsonc",
+      "helper.h": "c"
+    }
   },
   "launch": {
     "version": "0.2.0",

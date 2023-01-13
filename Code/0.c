@@ -4,7 +4,7 @@
 
 /* DEFINED PROGRESS GOALS
  * 
- * Build template succesfully
+ * Build template successfully
  * Render Logo and Icon
  * 
  */
